@@ -1,36 +1,26 @@
 import React from "react";
-import { Button, Form, Input, InputNumber, Modal, Space } from "antd";
+import { Button, Form, Input, InputNumber, Modal, Space, message } from "antd";
 import { users } from "../../constants/users";
-import './styles/createUser.scss'
-
-const layout = {
-  labelCol: {
-    span: 4,
-  },
-  wrapperCol: {
-    span: 18,
-  },
-};
-
-const validateMessages = {
-  required: "${label} is required!",
-  types: {
-    email: "Geçerli bir mail adresi giriniz..",
-    number: "Geçerli bir sayı giriniz..",
-  },
-  number: {
-    range: "${label} must be between ${min} and ${max}",
-  },
-};
+import "./styles/createUser.scss";
+import { layout, validateMessages } from "../../constants/formSettings";
 
 const CreateUser = ({ isModalOpen, setIsModalOpen, setUsersList }) => {
+  const [form] = Form.useForm();
   const onCancel = () => {
     setIsModalOpen(false);
+    form.resetFields();
   };
 
   const onFinish = (values) => {
+    values.phone = "+90 " + values.phone;
     users.push(values);
     setUsersList([...users]);
+    form.resetFields();
+    message.success({
+      type: "success",
+      content: "Kullanıcı başarıyla eklendi",
+    });
+    setIsModalOpen(false);
   };
 
   return (
@@ -43,6 +33,7 @@ const CreateUser = ({ isModalOpen, setIsModalOpen, setUsersList }) => {
       >
         <Form
           {...layout}
+          form={form}
           name="nest-messages"
           onFinish={onFinish}
           className="modalFormStyle "

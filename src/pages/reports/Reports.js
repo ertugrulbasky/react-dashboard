@@ -1,23 +1,24 @@
 import React from "react";
 import { Card, Col, Row } from "antd";
 import { pieData, columnData, stockData } from "../../constants/chartDatas";
-import Chart from "../../components/CustomChart/Chart";
+import { CustomChart } from "../../components";
+
 
 const Reports = () => (
   <Row gutter={16}>
     <Col span={8}>
       <Card bordered={false}>
-        <Chart options={pieData} />
+        <CustomChart options={pieData} />
       </Card>
     </Col>
     <Col span={8}>
       <Card bordered={false}>
-        <Chart options={stockData} />
+        <CustomChart options={stockData} />
       </Card>
     </Col>
     <Col span={8}>
       <Card bordered={false}>
-        <Chart options={columnData} />
+        <CustomChart options={columnData} />
       </Card>
     </Col>
   </Row>

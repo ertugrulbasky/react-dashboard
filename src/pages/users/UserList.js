@@ -3,8 +3,8 @@ import { users } from "../../constants/users";
 import CreateUser from "./CreateUser";
 import { userTableColumns } from "../../constants/tableColumns";
 import "./styles/userList.scss";
-import DataTable from "../../components/DataTable/DataTable";
-import CustomButton from '../../components/CustomButton/Button'
+import { DataTable,CustomButton } from "../../components";
+
 
 const UserList = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

@@ -11,9 +11,32 @@ export const pieData = {
 
   series: [
     {
-      data: [1, 2, 1, 4, 3, 6],
-    },
-  ],
+        name: 'Oran %',
+        colorByPoint: true,
+        data: [
+            {
+                name: 'Bilgisayar',
+                y: 20
+            },
+            {
+                name: 'Cep Telefonu',
+                y: 43
+            },
+            {
+                name: 'Beyaz Eşya',
+                y: 17
+            },
+            {
+                name: 'Spor Ayakkabı',
+                y: 10
+            },
+            {
+                name: 'Oyun Konsolu',
+                y: 10
+            }
+        ]
+    }
+]
 };
 
 export const stockData = {
